@@ -14,6 +14,7 @@ import ReactFlow, {
 	MarkerType,
 	reconnectEdge,
 	applyEdgeChanges,
+	EdgeChange,
 } from "reactflow";
 import TextNode from "../nodes/TextNode";
 import NodesPanel from "../nodesPanel/NodesPanel";
@@ -155,7 +156,7 @@ export default function FlowBuilder() {
 	}, [setNodes, setEdges]);
 
     // Handle edge changes (delete, update, etc.)
-    const onEdgesChange = useCallback((changes: any) => {
+    const onEdgesChange = useCallback((changes: EdgeChange[]) => {
         setEdges((eds) => applyEdgeChanges(changes, eds));
     }, [setEdges]);
 
